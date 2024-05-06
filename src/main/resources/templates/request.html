@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="Cars"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h1 th:align="center">Создать запрос на обслуживание машины</h1>
+<div th:align="center">
+</div>
+
+<form method="POST" th:action="@{/request}" th:object="${newCar}">
+
+    <div>
+        <h3>Марка:</h3>
+        <input type="text" name="brand" th:field="*{brand}"/>
+        <div style="color: red" th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}" ></div>
+        <br/>
+    </div>
+
+
+    <div>
+        <h3>Модель:</h3>
+        <input type="text" name="model" th:field="*{model}"/>
+        <div style="color: red" th:if="${#fields.hasErrors('model')}" th:errors="*{model}" ></div>
+        <br/>
+    </div>
+
+
+    <div id="typeOfWork">
+        <h3>Выберите тип работ:</h3>
+        <div>
+            <input name="typeOfWork" type="radio" value="То" />
+            <span>ТО</span><br/>
+            <input name="typeOfWork" type="radio" value="Ремонт" />
+            <span>Ремонт</span><br/>
+            <div style="color: red" th:if="${#fields.hasErrors('typeOfWork')}" th:errors="*{typeOfWork}" ></div>
+
+        </div>
+    </div>
+
+    <div>
+        <h3>Описание работ:</h3>
+        <input type="text" name="description" th:field="*{description}"/>
+        <div style="color: red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}" ></div>
+        <br/>
+
+        <button>Подтвердить</button>
+    </div>
+
+</form>
+
+</body>
+</html>

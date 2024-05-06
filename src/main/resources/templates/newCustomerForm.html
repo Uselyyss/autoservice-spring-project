@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Создание заказчика</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <style>
+    .half {
+      margin-right: 800px;
+      margin-left: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<form method="POST" th:action="@{/customers}" th:object="${customer}">
+
+  <h1 align="center">Информация о заказчике</h1>
+  <label class="form-label" for="name">Имя клиента: </label>
+  <input id="name" class="form-control" type="text" th:field="*{name}"/>
+  <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}" ></div>
+
+  <br/>
+  <label class="form-label" for="surname">Фамилия клиента: </label>
+  <input id="surname" class="form-control" type="text" th:field="*{surname}"/>
+  <br/>
+  <br/>
+  <br/>
+
+  <h3>Платежные реквизиты</h3>
+  <label class="form-label" for="ccNumber">Номер карты: </label>
+  <input id="ccNumber" class="form-control" type="text" th:field="*{ccNumber}"/>
+  <div style="color: red" th:if="${#fields.hasErrors('ccNumber')}" th:errors="*{ccNumber}" ></div>
+  <br/>
+
+  <label class="form-label" for="ccExpiration">Действительность: </label>
+  <input id="ccExpiration" class="form-control" type="text" th:field="*{ccExpiration}"/>
+  <div style="color: red" th:if="${#fields.hasErrors('ccExpiration')}" th:errors="*{ccExpiration}" ></div>
+  <br/>
+
+  <label for="ccCVV">CVV: </label>
+  <input id="ccCVV" class="form-control" type="text" th:field="*{ccCVV}"/>
+  <div style="color: red" th:if="${#fields.hasErrors('ccCVV')}" th:errors="*{ccCVV}" ></div>
+  <br/>
+
+  <button>Подтвердить</button>
+
+</form>
+
+</body>
+</html>

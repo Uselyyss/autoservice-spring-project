@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Заказчик</title>
+</head>
+<body>
+
+<p th:text="${customer.getName()}">VALUE</p>
+<p th:text="${customer.getSurname()}">VALUE</p>
+<p th:text="${customer.getId()}">VALUE</p>
+
+<a th:href="@{/request/new(usId=${customer.getId()}) }">Запрос на обслуживание машины</a>
+
+<div th:each="car : ${cars}">
+    <a th:if="${customer.getId()} == ${car.getClientId()}" th:href="@{/request/{id} (id = ${car.id}) }"
+       th:text="${car.brand}">Бренд </a>
+    <a th:text="${car.model}">Модель</a>
+</div>
+
+
+</body>
+</html>

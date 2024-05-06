@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Главная страница</title>
+</head>
+<body>
+
+<h1 th:align="center" >Главная страница</h1>
+
+<div th:align="center">
+  <img th:src="@{/Images/AutoService.jpg}" th:width="600" th:high="600" >
+</div>
+
+<a th:marginwidth="10" th:href="@{/customers}">Заказчики</a>
+<a th:marginwidth="10" th:href="@{/customers/newCustomer}">Создать заказчика</a>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:text="Cars"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h1 th:align="center">Запрос на обслуживание машины</h1>
+
+<form method="POST" th:action="@{/request}" th:object="${car}">
+
+  <div id="brand">
+    <h3>Марка:</h3>
+    <p th:text="${car.brand}"></p>
+  </div>
+
+  <div id="model">
+  <h3>Модель:</h3>
+  <p th:text="${car.model}"></p>
+  </div>
+
+  <div class="mt-3" id="typeOfWork">
+    <h3>Тип работ:</h3>
+    <p th:text="${car.typeOfWork}"></p>
+  </div>
+
+  <div id="descriptrion">
+    <h3>Описание:</h3>
+    <p th:text="${car.description}"></p>
+  </div>
+
+
+</form>
+
+</body>
+</html>
